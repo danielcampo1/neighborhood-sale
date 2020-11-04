@@ -1,0 +1,38 @@
+INTERFACE:
+    * User would create login to save in DB
+    * Onced logged in greeted with a neighborly welcome.
+    * Creates a form to sell an item in desired neighborhood
+        or
+      look at items for sale in a neighborhood
+    * Can edit price of item being sold and description of your own item.
+    * Will be able to delete once sold.
+    
+USER CLASS:
+    * attibutes are => name, password, neighborhood
+    * signs in & or signs up 
+    * has many items 
+
+USER CONTROLLER:
+    * '/user/welcome' => landing page to greet user and route to sign in/up.
+    * '/user/signup' => fills out form to sign up.
+    * '/user/signup' => recieves form and creates instance of user, post.
+    * '/user/signin' => fills our form to sign in.
+    * '/user/signin' => processes form to check db and signs in, post.
+    * Can see all items for sell /user/:id/items
+    * Set Session
+
+ITEM CLASS:
+    * attibutes => name, price, description
+    * Item belongs to User
+
+ITEM CONTROLLER:
+    * '/item/ => landing page to either create or see all for sale items
+    * '/item/new' => fill out form for item to sale.
+    * '/item/new/ => recieves form to create item for sale, post.
+    * '/item/:id => reads and finds all items
+    * '/item/:id/edit => fills out new form to update any item for sale.
+    * '/item/:id/edit => recieves form, updates any attr of item, patch.
+    * '/item/:id/delete => deletes instance
+
+    
+
