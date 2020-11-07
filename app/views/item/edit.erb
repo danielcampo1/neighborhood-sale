@@ -1,0 +1,26 @@
+<h1> update form</h1>
+
+<form method="post" action="/item/#{@item.id}">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+    <label for:"name">Item for Sale:</label>
+    <br>
+    <input id="name" type=text name="name" placeholder="item" value="<%= @item.name%>" >
+        <br>
+        <br>
+
+    <label for:"price">Price:</label>
+    <br>
+    <input id="price" type=text name="price" placeholder="Enter Price" value="<%= @item.price%>">
+        <br>
+        <br>
+
+    <label for:"Description">Item Description:</label>
+    <br>
+    <textarea id="Description" name="description" rows="10" cols="50" ><%= @item.description%></textarea>
+        <br>
+        <br>
+
+        <input type=submit value="update">
+
+ 

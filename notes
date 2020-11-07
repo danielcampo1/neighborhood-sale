@@ -13,7 +13,7 @@ USER CLASS:
     * has many items 
 
 USER CONTROLLER:
-    * '/user/welcome' => landing page to greet user and route to sign in/up.
+    * '/index' => landing page to greet user and route to sign in/up.
     * '/user/signup' => fills out form to sign up.
     * '/user/signup' => recieves form and creates instance of user, post.
     * '/user/signin' => fills our form to sign in.
@@ -34,5 +34,8 @@ ITEM CONTROLLER:
     * '/item/:id/edit => recieves form, updates any attr of item, patch.
     * '/item/:id/delete => deletes instance
 
+    *make sure another user cant edit another user*
     
+
+
 

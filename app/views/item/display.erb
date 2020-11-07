@@ -1,0 +1,11 @@
+<% @items.each do |item| %>
+    <%= item.id %>
+    <br>
+    Item for Sale:<%= item.name %>
+        <br>
+    price: <%= item.price %>
+        <br>
+    description: <%= item.description %>
+        <br>
+    name: <%= item.user.username %>
+    <% end %>
