@@ -13,10 +13,21 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: rgb(220, 220, 224);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+  }
+  button {
+    background-color: #5c645c; /* Green */
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
   }
 
   .wrapper {
@@ -75,6 +86,8 @@
   .branding {
     clear: both;
   }
+
+  
 
   footer.branding {
     border-top: 2px solid #ccc;

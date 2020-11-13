@@ -8,12 +8,16 @@ class UserController < ApplicationController
         erb :'/user/signup'
     end
 
-    post '/user/signup' do
+    post '/user' do
          if   User.create(username: params[:username], password: params[:password], neighborhood: params[:neighborhood]).valid?
             redirect to '/user/signin'
          else
-            redirect to '/user/failure'
+            redirect to '/user/signup-failure'
         end
+    end
+
+    get '/user/signup-failure' do
+        erb :'/user/signupfailure'
     end
 
 
@@ -39,6 +43,26 @@ class UserController < ApplicationController
         @user = User.find(params[:id])
         erb :'/user/show'
     end
+
+    post '/user/:id/signout' do
+        session.clear
+        redirect '/user/welcome'
+    end
+
+    get '/user/:id/items' do
+        @user = User.find(params[:id])
+        
+        if session[:user_id] == @user.id
+            erb :"/user/allitems"
+        else
+            "no bueno senor!"
+        end
+
+        
+    end
+    
+
+
 
 
 

@@ -1,6 +1,29 @@
+<form method="get" action="/items">
+    <button type="submit" class="button" value="See all Items">See all Items</button>
+    </form>
+<br>
+<form method="get" action="/items/new">
+    <button type="submit" class="button" value="Sale Item">Sale Item</button>
+    </form>
+<br>
+<form method="post" action="/user/<%=current_user.id%>/signout">
+    <button type="submit" class="button" value="Signout">Sign-out</button>
+    </form>
+<br>
+<form method="get" action="/user/<%=current_user.id%>/items">
+    <button type="submit" class="button" value="your items">Your Items</button>
+    </form>
+<br>
+<br>
+<br> 
+
+
+
+
+
 <h1> update form</h1>
 
-<form method="post" action="/item/#{@item.id}">
+<form method="post" action="/items/<%=@item.id%>">
 <input id="hidden" type="hidden" name="_method" value="patch">
 
     <label for:"name">Item for Sale:</label>
@@ -23,4 +46,4 @@
 
         <input type=submit value="update">
 
- 
+ </form>

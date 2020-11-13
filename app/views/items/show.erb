@@ -19,11 +19,14 @@
 
 
 
-
-<h1>Welcome, <%=@user.username.capitalize%>!</h1>
+Item for Sale: <%= @item.name %>
     <br>
-<h4> Lets get started!</h4>
-   
-
-
-   
+price: <%= @item.price %>
+    <br>
+Description: <%= @item.description %>
+    <br>
+    <br>
+<form method="post" action="/items/<%= @item.id %>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>

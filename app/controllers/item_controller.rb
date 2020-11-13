@@ -1,42 +1,81 @@
 class ItemController < ApplicationController
 
     #create
-    get '/item/new' do
-        erb :'/item/new'
+    get '/items/new' do 
+        erb :"/items/new"
     end
 
-    post '/item/new' do
+    post '/items' do
+
         @item = Item.create(name: params[:name],
              price: params[:price],
              description: params[:description])
     
-            redirect to "/item/#{@item.id}"
+             @item.user = User.find(session[:user_id])
+            @item.save
+
+            redirect "/items/#{@item.id}"
+    end
+
+    get '/items/not-yours' do
+        erb :"items/notyours"
     end
     
     #read
 
-    get '/item/:id' do
-        @item = Item.find(params[:id])
-        erb :'/item/show'
+    get '/items' do
+        @items = Item.all
+
+        erb :'/items/display'
+    
     end
 
-    get '/item' do
-        @items = Item.all
-        erb :'/item/display'
+    get '/items/:id' do
+        @item = Item.find(params[:id])
+       
+        erb :'/items/show'
     end
 
 
     #update
 
-    get '/item/:id/edit' do
+    get '/items/:id/edit' do
         @item = Item.find(params[:id])
-    erb :'/item/edit'
+    erb :'/items/edit'
     end
 
-    patch '/item/:id/edit' do
+    patch '/items/:id' do
+        @item = Item.find(params[:id])
+        @user = @item.user
+        if session[:user_id] == @user.id
+        @item.update( 
+            name: params[:name],
+            price: params[:price],
+            description: params[:description]
+            )
+
+        redirect "/items/#{@item.id}"
+        else
+            redirect "/items/not-yours"
+        end
+
     end
-
-
 
     #delete
+
+    delete '/items/:id' do
+        @item = Item.find(params[:id])
+        @user = @item.user
+        if session[:user_id] == @user.id
+            @item.delete
+
+            redirect to '/items'
+        else
+            redirect "/items/not-yours"
+        end 
+    end
+
+
+
+
 end

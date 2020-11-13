@@ -20,10 +20,32 @@
 
 
 
-<h1>Welcome, <%=@user.username.capitalize%>!</h1>
+
+
+
+
+<h1> blah blah blah</h1>
+
+<form method="post" action="/items">
+
+    <label for:"name">Item for Sale:</label>
     <br>
-<h4> Lets get started!</h4>
-   
+    <input id="name" type=text name="name" placeholder="item">
+        <br>
+        <br>
 
+    <label for:"price">Price:</label>
+    <br>
+    <input id="price" type=text name="price" placeholder="Enter Price">
+        <br>
+        <br>
 
-   
+    <label for:"Description">Item Description:</label>
+    <br>
+    <textarea id="Description" name="description" rows="10" cols="50" placeholder="Description"></textarea>
+        <br>
+        <br>
+
+        <input type="submit" value="Create Item">
+
+ </form>

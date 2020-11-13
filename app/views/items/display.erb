@@ -20,10 +20,28 @@
 
 
 
-<h1>Welcome, <%=@user.username.capitalize%>!</h1>
+<% User.neighborhoods.each do |n| %>
+    <h1> <%=n.capitalize%> </h1>
+    <% i = 1 %>
+<% @items.each do |item| %>
+    <% if item.user.neighborhood == n %>
+        <%= i  %>.
+        <% i += 1 %>
+        <br>
+    name: <%= item.user.username.capitalize %>
     <br>
-<h4> Lets get started!</h4>
-   
-
-
-   
+    Item for Sale: <%= item.name %>
+        <br>
+    price: <%= item.price %>
+        <br>
+    description: <%= item.description %>
+        <br>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+    
+    <% end %>
+    <% end %>
+ <% end %>

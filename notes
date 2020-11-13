@@ -35,6 +35,7 @@ ITEM CONTROLLER:
     * '/item/:id/delete => deletes instance
 
     *make sure another user cant edit another user*
+    * want to add association in '/item'
     
 
 
