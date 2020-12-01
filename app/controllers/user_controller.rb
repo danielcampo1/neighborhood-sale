@@ -57,7 +57,6 @@ class UserController < ApplicationController
         else
             "no bueno senor!"
         end
-
         
     end
     

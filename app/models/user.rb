@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
     def self.neighborhoods
         self.all.collect do |x|
             x.neighborhood
-        end
+        end.uniq
     end 
 end

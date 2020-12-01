@@ -27,8 +27,16 @@
         <br>
         <br>
     <form method="post" action="/items/<%= ui.id %>">
-    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input id="hidden" type="hidden" name="_method" value="Delete">
     <input type="submit" value="delete">
     </form>
+    <form method="get" action="/items/<%= ui.id %>/edit">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="submit" value="Edit">
+    </form>
+    <br>
+    <br>
+    <br>
+
 
     <% end %>
