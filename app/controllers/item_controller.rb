@@ -3,23 +3,31 @@ class ItemController < ApplicationController
 
     #create
     get '/items/new' do 
+        if logged_in?
         erb :"/items/new"
+        else 
+            redirect :'/user/welcome'
+        end
     end
 
 
 
     post '/items' do
 
-        if @item = Item.new(name: params[:name],
+        @item = Item.new(name: params[:name],
             price: params[:price],
             description: params[:description])
         
-            @item.user = User.find(session[:user_id])
-                @item.save
+            @item.user = current_user 
+            
+            if @item.save
+                # @item.user = User.find(session[:user_id])
+    
 
                 redirect "/items/#{@item.id}"
             else 
             redirect :"/items"
+        
         end
     end
 
@@ -66,7 +74,7 @@ class ItemController < ApplicationController
     patch '/items/:id' do
         @item = Item.find(params[:id])
         @user = @item.user
-        if current_user && logged_in? 
+        if @user == current_user 
         @item.update( 
             name: params[:name],
             price: params[:price],
